@@ -26,38 +26,7 @@ Package name                              | Version                     | Downlo
 `WalkingTec.Mvvm.Mvc.Admin` | [![NuGet](https://img.shields.io/nuget/v/WalkingTec.Mvvm.Mvc.Admin.svg?style=flat-square&label=nuget)](https://www.nuget.org/packages/WalkingTec.Mvvm.Mvc.Admin/) | ![downloads](https://img.shields.io/nuget/dt/WalkingTec.Mvvm.Mvc.Admin.svg)
 `WalkingTec.Mvvm.TagHelpers.LayUI` | [![NuGet](https://img.shields.io/nuget/v/WalkingTec.Mvvm.TagHelpers.LayUI.svg?style=flat-square&label=nuget)](https://www.nuget.org/packages/WalkingTec.Mvvm.TagHelpers.LayUI/) | ![downloads](https://img.shields.io/nuget/dt/WalkingTec.Mvvm.TagHelpers.LayUI.svg)
 
-
-Kuàngjià zhǔyào tèdiǎn:
-
-Kuàngjià tígōngle 4 lèi ViewModel, hángàile zhǔliú Web yìngyòng chéngxù chángjiàn de gōngnéng, fēnbié shì:
-  BaseCRUDVM tígōng zuì chángjiàn de shùjù zēng shāngǎi de gōngnéng
-  PagedListVM tígōng fēnyè lièbiǎo yǐjí dǎochū de gōngnéng
-  ImportVM& TemplateVM tígōng shùjù dǎorù de gōngnéng
-  BatchVM tígōng pīliàng cāozuò de gōngnéng
-
-kuàngjià zì dài dàimǎ shēngchéng qì, kāifā gāoxiào kuàijié
-
-kuàngjià tígōngle shù shí zhǒng qiántái kòngjiàn, bāokuòle Form,Grid,Panel,Dialog děng jīhū suǒyǒu chángyòng kòngjiàn, zài bù jìnxíng qiánhòu fēnlí de qíngkuàng xià, hòu duān rényuán yě kěyǐ qīngsōng xiě chū piàoliang de qiántái yèmiàn. Mùqián kuàngjià zhǐ zhīchí Layui zuòwéi qiánduān UI, hòuqí wǒmen huì zhīchí gèng duō.
-
-Kuàngjià tígōngle nèizhì de yònghù, juésè, yònghù zǔ, shùjù quánxiàn, yèmiàn quánxiàn, càidān, rìzhì, yóujiàn, duǎnxìn, wénjiàn děng hòutái chángyòng guǎnlǐ gōngnéng
-
-kuàngjià zhīchí dān diǎn dēnglù, ménhù Portal, fēnbù shì shùjùkù
-
-kuàngjià tígōngle Redis,DFS děng hòutái kāifā chángyòng kù de jiǎnhuà cāozuò
-
-
-kuàngjià tígōngle qiánhòu duān fēnlí hé bù fēnlí liǎng zhǒng móshì
-
-| móshì | UI | zhuàngtài  |
-|--------- |------------- |---------|
-|bù fēnlí |LayUI |wěndìng |
-|qiánhòu duān fēnlí |React |wěndìng |
-|qiánhòu duān fēnlí |VUE |RTM|
-
-WTM kuàngjià de qiánhòu duān fēnlí móshì tóngyàng kěyǐ shǐyòng dàimǎ shēngchéng qì tóngshí shēngchéng qiántái hé hòutái de dàimǎ, jí dà de jiàngdīle qiánhòu duān rényuán de gōutōng chéngběn, cóng běnzhí shàng tíshēngle kāifā xiàolǜ, ràng “fēnlí” bù zài fùzá huo ángguì.
-Развернуть
-608/5000
-Основные особенности каркаса:
+##Основные особенности каркаса:
 
 Фреймворк предоставляет четыре типа ViewModel, охватывающих общие функции основных веб-приложений, а именно:
   BaseCRUDVM предоставляет наиболее распространенные функции добавления, удаления и изменения данных
@@ -87,29 +56,6 @@ WTM kuàngjià de qiánhòu duān fēnlí móshì tóngyàng kěyǐ shǐyòng d�
 Внешние и внутренние режимы разделения инфраструктуры WTM также могут использовать генератор кода для генерации внешнего и внутреннего кодов одновременно, что значительно снижает затраты на связь с внешним и внутренним персоналом, существенно повышает эффективность разработки и делает «разделение» более не сложным и дорогим ,
 
 
-
-![WTM kuàngjià wēixìn gōngzhòng hào](./Doc/WalkingTec.Mvvm.Doc/wwwroot/imgs/gongzhonghao.Jpg)
-
-guānzhù WTM wēixìn gōngzhòng hào, jíshí liǎojiě kuàngjià gēngxīn, gōngzhòng hào hái huì dìngqí fābù shìpín jiàochéng
-
-kuàngjià wéndàng dìzhǐ:Http://Wtmdoc.Walkingtec.Cn
-
-kuàngjià wèndá shèqū:Https://Community.Walkingtec.Cn
-
-kuàngjià QQ jiāoliú qún:694148336
-
-Nín kěyǐ diǎn zhèlǐ http://Wtmdoc.Walkingtec.Cn/setup zàixiàn yī jiàn shēngchéng WTM de xiàngmù, lìkè kāishǐ tǐyàn WTM zhīměi ~~~
-
-****
-mùqián wǒmen shì yīgè 7 rén tuánduì zài wéihù zhège xiàngmù, chéng zhēng gè lù C#,React,VUE gāoshǒu jiārù! Yǒuyì zhě kěyǐ jìn QQ qún jiā qún zhǔ xiáng liáo.
-****
-
-
-Zuìhòu gǎnxiè gèwèi lǎobǎn de zhīchí hé juānzèng, jùtǐ juānzèng xìnxī qǐng jiàn https://Wtmdoc.Walkingtec.Cn/#/Home/DonateList
-
-rúguǒ WTM bāngzhù dàole nǐ, huānyíng zànzhù diǎn ràng wǒmen chíxù jiànzào gèng hǎo de lúnzi:
-Развернуть
-442/5000
 ! [Официальный аккаунт WTM Frame WeChat] (./doc/WalkingTec.Mvvm.Doc/wwwroot/imgs/gongzhonghao.jpg)
 
 Обратите внимание на общедоступную учетную запись WTM WeChat, будьте в курсе обновлений фреймворка, а общедоступная учетная запись также будет регулярно публиковать видеоуроки
