@@ -1,6 +1,6 @@
 # WalkingTec.Mvvm for aspnet core
 
-WalkingTec.Mvvm框架（简称WTM）是基于.net core的快速开发框架。支持Layui(前后端不分离), React(前后端分离),VUE(前后端分离)，内置代码生成器，最大程度的提高开发效率，是一款高效开发的利器。
+WalkingTec.Mvvm Framework (WTM для краткости) - это среда быстрого развития, основанная на ядре .net. Поддержка Layui (отдельная передняя и задняя часть), React (раздельная передняя и задняя часть), VUE (отдельная передняя и задняя часть), встроенный генератор кода, максимизирующий эффективность разработки, является инструментом для эффективной разработки.
 
 [![Coverage Status](https://coveralls.io/repos/github/dotnetcore/WTM/badge.svg?branch=master)](https://coveralls.io/github/dotnetcore/WTM?branch=master)
 [![Member project of .NET Core Community](https://img.shields.io/badge/member%20project%20of-NCC-9e20c9.svg)](https://github.com/dotnetcore)
@@ -26,57 +26,110 @@ Package name                              | Version                     | Downlo
 `WalkingTec.Mvvm.Mvc.Admin` | [![NuGet](https://img.shields.io/nuget/v/WalkingTec.Mvvm.Mvc.Admin.svg?style=flat-square&label=nuget)](https://www.nuget.org/packages/WalkingTec.Mvvm.Mvc.Admin/) | ![downloads](https://img.shields.io/nuget/dt/WalkingTec.Mvvm.Mvc.Admin.svg)
 `WalkingTec.Mvvm.TagHelpers.LayUI` | [![NuGet](https://img.shields.io/nuget/v/WalkingTec.Mvvm.TagHelpers.LayUI.svg?style=flat-square&label=nuget)](https://www.nuget.org/packages/WalkingTec.Mvvm.TagHelpers.LayUI/) | ![downloads](https://img.shields.io/nuget/dt/WalkingTec.Mvvm.TagHelpers.LayUI.svg)
 
-框架主要特点：
 
-框架提供了4类ViewModel，涵盖了主流Web应用程序常见的功能，分别是：
-  BaseCRUDVM 提供最常见的数据增删改的功能
-  PagedListVM 提供分页列表以及导出的功能
-  ImportVM & TemplateVM 提供数据导入的功能
-  BatchVM 提供批量操作的功能
+Kuàngjià zhǔyào tèdiǎn:
 
-框架自带代码生成器，开发高效快捷
+Kuàngjià tígōngle 4 lèi ViewModel, hángàile zhǔliú Web yìngyòng chéngxù chángjiàn de gōngnéng, fēnbié shì:
+  BaseCRUDVM tígōng zuì chángjiàn de shùjù zēng shāngǎi de gōngnéng
+  PagedListVM tígōng fēnyè lièbiǎo yǐjí dǎochū de gōngnéng
+  ImportVM& TemplateVM tígōng shùjù dǎorù de gōngnéng
+  BatchVM tígōng pīliàng cāozuò de gōngnéng
 
-框架提供了数十种前台控件，包括了Form,Grid,Panel,Dialog等几乎所有常用控件，在不进行前后分离的情况下，后端人员也可以轻松写出漂亮的前台页面。目前框架只支持Layui作为前端UI，后期我们会支持更多。
+kuàngjià zì dài dàimǎ shēngchéng qì, kāifā gāoxiào kuàijié
 
-框架提供了内置的用户，角色，用户组，数据权限，页面权限，菜单，日志，邮件，短信，文件等后台常用管理功能
+kuàngjià tígōngle shù shí zhǒng qiántái kòngjiàn, bāokuòle Form,Grid,Panel,Dialog děng jīhū suǒyǒu chángyòng kòngjiàn, zài bù jìnxíng qiánhòu fēnlí de qíngkuàng xià, hòu duān rényuán yě kěyǐ qīngsōng xiě chū piàoliang de qiántái yèmiàn. Mùqián kuàngjià zhǐ zhīchí Layui zuòwéi qiánduān UI, hòuqí wǒmen huì zhīchí gèng duō.
 
-框架支持单点登录，门户Portal，分布式数据库
+Kuàngjià tígōngle nèizhì de yònghù, juésè, yònghù zǔ, shùjù quánxiàn, yèmiàn quánxiàn, càidān, rìzhì, yóujiàn, duǎnxìn, wénjiàn děng hòutái chángyòng guǎnlǐ gōngnéng
 
-框架提供了Redis,DFS等后台开发常用库的简化操作
+kuàngjià zhīchí dān diǎn dēnglù, ménhù Portal, fēnbù shì shùjùkù
+
+kuàngjià tígōngle Redis,DFS děng hòutái kāifā chángyòng kù de jiǎnhuà cāozuò
 
 
-框架提供了前后端分离和不分离两种模式
+kuàngjià tígōngle qiánhòu duān fēnlí hé bù fēnlí liǎng zhǒng móshì
 
-| 模式 | UI | 状态  |
+| móshì | UI | zhuàngtài  |
 |--------- |------------- |---------|
-|不分离 |LayUI |稳定|
-|前后端分离 |React |稳定|
-|前后端分离 |VUE |RTM|
+|bù fēnlí |LayUI |wěndìng |
+|qiánhòu duān fēnlí |React |wěndìng |
+|qiánhòu duān fēnlí |VUE |RTM|
 
-WTM框架的前后端分离模式同样可以使用代码生成器同时生成前台和后台的代码，极大的降低了前后端人员的沟通成本，从本质上提升了开发效率，让“分离”不再复杂和昂贵。
+WTM kuàngjià de qiánhòu duān fēnlí móshì tóngyàng kěyǐ shǐyòng dàimǎ shēngchéng qì tóngshí shēngchéng qiántái hé hòutái de dàimǎ, jí dà de jiàngdīle qiánhòu duān rényuán de gōutōng chéngběn, cóng běnzhí shàng tíshēngle kāifā xiàolǜ, ràng “fēnlí” bù zài fùzá huo ángguì.
+Развернуть
+608/5000
+Основные особенности каркаса:
+
+Фреймворк предоставляет четыре типа ViewModel, охватывающих общие функции основных веб-приложений, а именно:
+  BaseCRUDVM предоставляет наиболее распространенные функции добавления, удаления и изменения данных
+  PagedListVM предоставляет список подкачки и функцию экспорта
+  ImportVM & TemplateVM предоставляет функцию импорта данных
+  BatchVM предоставляет функции для пакетных операций
+
+Фреймворк поставляется с генератором кода для эффективной и быстрой разработки
+
+Среда предоставляет десятки внешних элементов управления, включая почти все обычно используемые элементы управления, такие как форма, сетка, панель и диалоговое окно. Не разделяя переднюю и заднюю часть, вспомогательный персонал может легко писать прекрасные внешние страницы. В настоящее время фреймворк поддерживает Layui только как интерфейсный интерфейс, и мы будем поддерживать его позже.
+
+Каркас предоставляет встроенные функции фонового управления, такие как пользователи, роли, группы пользователей, права доступа к данным, права доступа к страницам, меню, журналы, электронные письма, SMS, файлы и т. Д.
+
+Каркас поддерживает единый вход, портал портала, распределенную базу данных.
+
+Среда обеспечивает упрощенные операции общих библиотек для фоновой разработки, таких как Redis, DFS и т. Д.
+
+
+Каркас обеспечивает два режима разделения переднего и заднего конца и без разделения
+
+| Режим | Интерфейс | Статус |
+| --------- | ------------- | --------- |
+| Не отделяйте | LayUI | Стабильный |
+| Передний и задний разделитель | Реагировать | Стабильность |
+| Передний и задний конец разделения | VUE | RTM |
+
+Внешние и внутренние режимы разделения инфраструктуры WTM также могут использовать генератор кода для генерации внешнего и внутреннего кодов одновременно, что значительно снижает затраты на связь с внешним и внутренним персоналом, существенно повышает эффективность разработки и делает «разделение» более не сложным и дорогим ,
 
 
 
-![WTM框架微信公众号](./doc/WalkingTec.Mvvm.Doc/wwwroot/imgs/gongzhonghao.jpg)
+![WTM kuàngjià wēixìn gōngzhòng hào](./Doc/WalkingTec.Mvvm.Doc/wwwroot/imgs/gongzhonghao.Jpg)
 
-关注WTM微信公众号，及时了解框架更新，公众号还会定期发布视频教程
+guānzhù WTM wēixìn gōngzhòng hào, jíshí liǎojiě kuàngjià gēngxīn, gōngzhòng hào hái huì dìngqí fābù shìpín jiàochéng
 
-框架文档地址：http://wtmdoc.walkingtec.cn
+kuàngjià wéndàng dìzhǐ:Http://Wtmdoc.Walkingtec.Cn
 
-框架问答社区：https://community.walkingtec.cn
+kuàngjià wèndá shèqū:Https://Community.Walkingtec.Cn
 
-框架QQ交流群：694148336
+kuàngjià QQ jiāoliú qún:694148336
 
-您可以点这里 http://wtmdoc.walkingtec.cn/setup 在线一键生成WTM的项目，立刻开始体验WTM之美~~~
+Nín kěyǐ diǎn zhèlǐ http://Wtmdoc.Walkingtec.Cn/setup zàixiàn yī jiàn shēngchéng WTM de xiàngmù, lìkè kāishǐ tǐyàn WTM zhīměi ~~~
 
 ****
-目前我们是一个7人团队在维护这个项目，诚征各路C#，React，VUE高手加入！有意者可以进QQ群加群主详聊。
+mùqián wǒmen shì yīgè 7 rén tuánduì zài wéihù zhège xiàngmù, chéng zhēng gè lù C#,React,VUE gāoshǒu jiārù! Yǒuyì zhě kěyǐ jìn QQ qún jiā qún zhǔ xiáng liáo.
 ****
 
 
-最后感谢各位老板的支持和捐赠，具体捐赠信息请见 https://wtmdoc.walkingtec.cn/#/Home/DonateList
+Zuìhòu gǎnxiè gèwèi lǎobǎn de zhīchí hé juānzèng, jùtǐ juānzèng xìnxī qǐng jiàn https://Wtmdoc.Walkingtec.Cn/#/Home/DonateList
 
-如果WTM帮助到了你，欢迎赞助点让我们持续建造更好的轮子：
+rúguǒ WTM bāngzhù dàole nǐ, huānyíng zànzhù diǎn ràng wǒmen chíxù jiànzào gèng hǎo de lúnzi:
+Развернуть
+442/5000
+! [Официальный аккаунт WTM Frame WeChat] (./doc/WalkingTec.Mvvm.Doc/wwwroot/imgs/gongzhonghao.jpg)
+
+Обратите внимание на общедоступную учетную запись WTM WeChat, будьте в курсе обновлений фреймворка, а общедоступная учетная запись также будет регулярно публиковать видеоуроки
+
+Рамочный адрес документа: http://wtmdoc.walkingtec.cn
+
+Сообщество Q & A: https://community.walkingtec.cn
+
+Framework QQ Exchange Group: 694148336
+
+Вы можете нажать здесь http://wtmdoc.walkingtec.cn/setup, чтобы создать проект WTM одним щелчком мыши в режиме онлайн и сразу же начать испытывать всю прелесть WTM ~~~
+
+****
+В настоящее время мы работаем над проектом из 7 человек, и мы ищем экспертов C #, React и VUE, которые присоединятся к нам! Заинтересованные стороны могут войти в группу QQ плюс владелец группы, чтобы подробно поговорить.
+****
+
+
+Наконец, спасибо боссам за вашу поддержку и пожертвования. За конкретной информацией о пожертвованиях обращайтесь по адресу https://wtmdoc.walkingtec.cn/#/Home/DonateList.
+
+Если WTM поможет вам, добро пожаловать в спонсорские пункты, чтобы продолжать создавать лучшие колеса:
 
 <img src="./doc/WalkingTec.Mvvm.Doc/wwwroot/imgs/WTM-Ali.png"  height="300" width="300">
 
