@@ -9,6 +9,7 @@ using WalkingTec.Mvvm.ReactDemo.Models;
 using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Mvc;
 using WalkingTec.Mvvm.TagHelpers.LayUI;
+using Microsoft.OpenApi.Models;
 
 namespace WalkingTec.Mvvm.ReactDemo
 {
@@ -31,19 +32,34 @@ namespace WalkingTec.Mvvm.ReactDemo
                     x.AddLayui();
                     x.AddSwaggerGen(c =>
                     {
-                        c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-                        c.AddSecurityDefinition("Bearer", new ApiKeyScheme()
+                        c.SwaggerDoc("v1", new OpenApiInfo{ Title = "My API", Version = "v1" });
+                        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                         {
                             Description = "JWT Bearer",
                             Name = "Authorization",
-                            In = "header",
-                            Type = "apiKey"
+                            In = ParameterLocation.Header,
+                            Type = SecuritySchemeType.ApiKey,
                         });
-                        c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
+                        c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                        {
                             {
-                                { "Bearer", new string[] { } }
-                            });
+                                new OpenApiSecurityScheme
+                                {
+                                    Reference = new OpenApiReference
+                                    {
+                                        Type = ReferenceType.SecurityScheme,
+                                        Id = "Bearer"
+                                    }
+                                }, new List<string>()
+                            }
+                        });
+                        //c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
+                        //    {
+                        //        { "Bearer", new string[] { } }
+                        //    });
                     });
+                    x.AddMvc(option => option.EnableEndpointRouting = false);
+                    //x.AddControllers();
                     x.AddSpaStaticFiles(configuration =>
                     {
                         configuration.RootPath = "ClientApp/build";

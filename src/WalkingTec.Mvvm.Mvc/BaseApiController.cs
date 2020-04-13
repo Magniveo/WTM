@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Core.Auth;
 using WalkingTec.Mvvm.Core.Extensions;
@@ -54,7 +56,9 @@ namespace WalkingTec.Mvvm.Mvc
                 _globaInfo = value;
             }
         }
-
+        #region JsonResult
+        private const string SUCCESS = "success";
+        #endregion
         private IDistributedCache _cache;
         public IDistributedCache Cache
         {
@@ -558,7 +562,16 @@ namespace WalkingTec.Mvvm.Mvc
 ";
             });
         }
-
+        [NonAction]
+        public JsonResult Json(object data, JsonSerializerSettings serializerSettings)
+        {
+            return Json(data, StatusCodes.Status200OK, SUCCESS, serializerSettings);
+        }
+        [NonAction]
+        public virtual JsonResult Json(object data, int statusCode = StatusCodes.Status200OK, string msg = SUCCESS, JsonSerializerSettings serializerSettings = null)
+        {
+            return new JsonResult(new JsonResultT<object> { Msg = msg, Code = statusCode, Data = data }) { SerializerSettings = serializerSettings };
+        }
         private void ProcessTreeDp(List<DataPrivilege> dps)
         {
             var dpsSetting = GlobalServices.GetService<Configs>().DataPrivilegeSettings;

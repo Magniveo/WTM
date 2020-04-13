@@ -825,7 +825,7 @@ namespace WalkingTec.Mvvm.Mvc
         /// <returns>The created Microsoft.AspNetCore.Mvc.JsonResult that serializes the specified
         /// data to JSON format for the response.</returns>
         [NonAction]
-        public override JsonResult Json(object data, JsonSerializerSettings serializerSettings)
+        public JsonResult Json(object data, JsonSerializerSettings serializerSettings)
         {
             return Json(data, StatusCodes.Status200OK, SUCCESS, serializerSettings);
         }

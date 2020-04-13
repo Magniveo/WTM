@@ -13,6 +13,7 @@ using WalkingTec.Mvvm.Demo.Models;
 using WalkingTec.Mvvm.Mvc;
 using WalkingTec.Mvvm.TagHelpers.LayUI;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace WalkingTec.Mvvm.Demo
 {
@@ -59,22 +60,35 @@ namespace WalkingTec.Mvvm.Demo
                         };
                         x.AddFrameworkService(dataPrivilegeSettings: pris, webHostBuilderContext: hostingCtx,CsSector:CSSelector);
                         x.AddLayui();
-                        x.AddSwaggerGen(c =>
+                            x.AddSwaggerGen(c =>
+                            {
+                                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                                {
+                                    Description = "JWT Bearer",
+                                    Name = "Authorization",
+                                    In = ParameterLocation.Header,
+                                    Type = SecuritySchemeType.ApiKey,
+                                });
+                                c.AddSecurityRequirement(new OpenApiSecurityRequirement
                         {
-                            c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-                            c.AddSecurityDefinition("Bearer", new ApiKeyScheme()
                             {
-                                Description = "JWT Bearer",
-                                Name = "Authorization",
-                                In = "header",
-                                Type = "apiKey"
-                            });
-                            c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
-                            {
-                                { "Bearer", new string[] { } }
-                            });
+                                new OpenApiSecurityScheme
+                                {
+                                    Reference = new OpenApiReference
+                                    {
+                                        Type = ReferenceType.SecurityScheme,
+                                        Id = "Bearer"
+                                    }
+                                }, new List<string>()
+                            }
                         });
-                    })
+                                //c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
+                                //    {
+                                //        { "Bearer", new string[] { } }
+                                //    });
+                            });
+                        })
                     .Configure(x =>
                     {
                         var configs = x.ApplicationServices.GetRequiredService<Configs>();

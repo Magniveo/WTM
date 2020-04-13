@@ -39,6 +39,7 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using Microsoft.Extensions.DependencyInjection;
 
 using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Core.Auth;
@@ -48,6 +49,7 @@ using WalkingTec.Mvvm.Core.Implement;
 using WalkingTec.Mvvm.Mvc.Binders;
 using WalkingTec.Mvvm.Mvc.Filters;
 using WalkingTec.Mvvm.Mvc.Json;
+using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 
 namespace WalkingTec.Mvvm.Mvc
 {
@@ -186,7 +188,8 @@ namespace WalkingTec.Mvvm.Mvc
                 options.Filters.Add(new PrivilegeFilter());
                 options.Filters.Add(new FrameworkFilter());
             })
-            .AddJsonOptions(options =>
+            //services.AddControllers()
+            .AddNewtonsoftJson(options =>
             {
                 //忽略循环引用
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -240,7 +243,7 @@ namespace WalkingTec.Mvvm.Mvc
             .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
 
-            services.Configure<RazorViewEngineOptions>(options =>
+            services.Configure<MvcRazorRuntimeCompilationOptions>(options =>
             {
                 if (mvc != null)
                 {
@@ -464,6 +467,34 @@ namespace WalkingTec.Mvvm.Mvc
             }
             else
             {
+                app.UseRouting();
+                //app.UseEndpoints(endpoints =>
+                //{
+                //    endpoints.MapControllers();
+                //});
+                //app.UseEndpoints(endpoints =>
+                //{
+                //    endpoints.MapControllerRoute(
+                //        name: "areaRoute",
+                //        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                //    endpoints.MapControllerRoute(
+                //        name: "default",
+                //        pattern: "{controller=Home}/{action=Index}/{id?}");
+                //});
+                //not work
+                //app.UseEndpoints(endpoints =>
+                //{
+                //    endpoints.MapControllerRoute(
+                //    name: "areaRoute",
+                //    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                //    endpoints.MapControllerRoute(
+                //        name: "default",
+                //        pattern: "{controller=Home}/{action=Index}/{id?}");
+                //});
+                //app.UseEndpoints(endpoints =>
+                //{
+                //    endpoints.MapControllers();
+                //});
                 app.UseMvc(routes =>
                 {
                     routes.MapRoute(
@@ -473,6 +504,12 @@ namespace WalkingTec.Mvvm.Mvc
                         name: "default",
                         template: "{controller=Home}/{action=Index}/{id?}");
                 });
+                //app.UseMvc(routes =>
+                //{
+                //    routes.MapRoute(
+                //        name: "default",
+                //        template: "{controller=Home}/{action=Index}/{id?}");
+                //}); 
             }
 
             return app;
