@@ -142,33 +142,33 @@ namespace WalkingTec.Mvvm.Core.Auth
             {
                 _mvcOptions = context.HttpContext.RequestServices.GetRequiredService<IOptions<MvcOptions>>().Value;
             }
+            //AllowCombiningAuthorizeFilters not contains in 3.0
+            //if (_mvcOptions.AllowCombiningAuthorizeFilters)//AllowCombiningAuthorizeFilters
+            //{
+            //    if (!context.IsEffectivePolicy(this))
+            //    {
+            //        return null;
+            //    }
 
-            if (_mvcOptions.AllowCombiningAuthorizeFilters)
-            {
-                if (!context.IsEffectivePolicy(this))
-                {
-                    return null;
-                }
+            //    // Combine all authorize filters into single effective policy that's only run on the closest filter
+            //    var builder = new AuthorizationPolicyBuilder(effectivePolicy);
+            //    for (var i = 0; i < context.Filters.Count; i++)
+            //    {
+            //        if (ReferenceEquals(this, context.Filters[i]))
+            //        {
+            //            continue;
+            //        }
 
-                // Combine all authorize filters into single effective policy that's only run on the closest filter
-                var builder = new AuthorizationPolicyBuilder(effectivePolicy);
-                for (var i = 0; i < context.Filters.Count; i++)
-                {
-                    if (ReferenceEquals(this, context.Filters[i]))
-                    {
-                        continue;
-                    }
+            //        if (context.Filters[i] is AuthorizeFilter authorizeFilter)
+            //        {
+            //            // Combine using the explicit policy, or the dynamic policy provider
+            //            builder.Combine(await authorizeFilter.ComputePolicyAsync());
+            //            canCache = canCache && authorizeFilter.PolicyProvider == null;
+            //        }
+            //    }
 
-                    if (context.Filters[i] is AuthorizeFilter authorizeFilter)
-                    {
-                        // Combine using the explicit policy, or the dynamic policy provider
-                        builder.Combine(await authorizeFilter.ComputePolicyAsync());
-                        canCache = canCache && authorizeFilter.PolicyProvider == null;
-                    }
-                }
-
-                effectivePolicy = builder?.Build() ?? effectivePolicy;
-            }
+            //    effectivePolicy = builder?.Build() ?? effectivePolicy;
+            //}
 
             // We can cache the effective policy when there is no custom policy provider
             if (canCache)

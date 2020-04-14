@@ -1,16 +1,21 @@
 import enus from './en-US/default';
+import engb from './en-GB/default';
 import zhcn from './zh-CN/default';
 import lodash from 'lodash';
 import { defineMessages, FormattedMessage, MessageDescriptor } from 'react-intl';
 import globalconfig from 'global.config';
 import antdZhCN from 'antd/lib/locale-provider/zh_CN';
 import antdEnUS from 'antd/lib/locale-provider/en_US';
+import antdEnGB from 'antd/lib/locale-provider/en_GB';
 let locales = {
     'zh-CN': {
         ...zhcn,
     },
     'en-US': {
         ...enus,
+    },
+    'en-GB': {
+        ...engb,
     }
 };
 /**
@@ -69,7 +74,8 @@ export function getLocales(language = globalconfig.language) {
 export function getConfigProvider(language = globalconfig.language) {
     return lodash.get({
         'zh-CN': antdZhCN,
-        'en-US': antdEnUS
+        'en-US': antdEnUS,
+        'en-GB': antdEnGB
     }, language, antdZhCN)
 }
 export default locales

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Transactions;
 
 using Microsoft.EntityFrameworkCore;
@@ -748,7 +750,8 @@ where S : struct
 
         public static string GetTableName<T>(this IDataContext self)
         {
-            return self.Model.FindEntityType(typeof(T)).SqlServer().TableName;
+            //return self.Model.FindEntityType(typeof(T)).SqlServer().TableName;
+            return RelationalEntityTypeExtensions.GetTableName(self.Model.FindEntityType(typeof(T)));
         }
 
         /// <summary>
@@ -960,6 +963,21 @@ where S : struct
         public void Rollback()
         {
             throw new TransactionInDoubtException("an exception occurs while executing the nested transaction or processing the results");
+        }
+
+        public Task CommitAsync(CancellationToken cancellationToken = default)
+        {
+            return DefaultTransaction.CommitAsync(cancellationToken);
+        }
+
+        public Task RollbackAsync(CancellationToken cancellationToken = default)
+        {
+            return DefaultTransaction.RollbackAsync(cancellationToken);
+        }
+
+        public ValueTask DisposeAsync()
+        {
+            return DefaultTransaction.DisposeAsync();
         }
 
         public Guid TransactionId => Guid.Empty;
